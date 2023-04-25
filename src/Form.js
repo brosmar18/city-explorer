@@ -5,13 +5,13 @@ class Form extends React.Component {
         return (
             <>
                 <form className="form">
-                    <fieldset className="form__fieldset">
-                        <label className="form__label">City Name</label>
-                        <input className="form__input" type="text"></input>
-                    </fieldset>
-                    <fieldset className="form__fieldset">
-                        <button className="form__button" type="submit">Submit</button>
-                    </fieldset>
+                    <div className="form__group">
+                        <label className="form__label" htmlFor="city-name">City Name</label>
+                        <input className="form__input" id="city-name" type="text" />
+                    </div>
+                    <div className="form__group">
+                        <button className="btn btn-primary" type="submit">Submit</button>
+                    </div>
                 </form>
             </>
         )
