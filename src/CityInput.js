@@ -4,7 +4,7 @@ import { Button, Form } from "react-bootstrap";
 class CityInput extends Component {
     handleCitySubmit = async (event) => {
         event.preventDefault();
-        this.props.displayLocation();
+        this.props.displayLocationInfo();
     };
 
     render() {

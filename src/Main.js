@@ -31,7 +31,7 @@ class Main extends React.Component {
     };
 
     displayLocationInfo = async () => {
-        console.log("proof we made it ");
+
         let url = `https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATION_KEY}&q=${this.state.cityName}&format=json`;
 
         try {
