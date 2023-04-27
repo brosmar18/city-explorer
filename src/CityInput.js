@@ -14,7 +14,7 @@ class CityInput extends Component {
                     <Form.Label>Search for Location:</Form.Label>
                     <Form.Control
                         type="text"
-                        onChange={this.props.handleCityInput}
+                        onChange={this.props.handleCityInputChange}
                         placeholder="Enter a city"
                     />
                 </Form.Group>

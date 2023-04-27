@@ -24,16 +24,17 @@ class Main extends React.Component {
     }
 
     handleCityInputChange = (event) => {
-
+        console.log(event.target.value);
         this.setState({
             cityName: event.target.value,
         });
     };
 
     displayLocationInfo = async () => {
-
+        console.log(this.state.cityName);
+        // https://us1.locationiq.com/v1/search?key=pk.e868c5681f57c9f8ce3185a84d077069&q=Seattle&format=json
         let url = `https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATION_KEY}&q=${this.state.cityName}&format=json`;
-
+        console.log(url);
         try {
             let cityInfoResponse = await axios.get(url);
             let latitude = cityInfoResponse.data[0].lat;
@@ -86,7 +87,7 @@ class Main extends React.Component {
                             <Row>
                                 <Col>
                                     <MapDisplay
-                                        imgUrl={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_KEY}&center=${this.state.latitude},${this.state.longitude}&zoom=12`}
+                                        imgUrl={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_KEY}&center=${this.state.latitude},${this.state.longitude}&zoom=0`}
                                         cityName={this.state.cityName}
                                     />
                                 </Col>
