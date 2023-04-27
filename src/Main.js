@@ -6,7 +6,7 @@ import LocationInfo from "./LocationInfo";
 import CityInput from "./CityInput";
 import MapDisplay from "./MapDisplay";
 import axios from "axios";
-console.log(process.env.REACT_APP_LOCATION_KEY);
+
 
 class Main extends React.Component {
     constructor(props) {
