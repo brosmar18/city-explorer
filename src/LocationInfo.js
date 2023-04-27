@@ -7,7 +7,7 @@ class LocationInfo extends React.Component {
             <>
                 <Card className="location-cards" id="location">
                     <Card.Body>
-                        <Card.Title>Enjoy {this.props.city}!</Card.Title>
+                        <Card.Title>Enjoy {this.props.cityName}!</Card.Title>
                         <Card.Text>
                             Latitude: {this.props.lat},
                             Longitude:{this.props.lon}
