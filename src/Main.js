@@ -86,10 +86,10 @@ class Main extends React.Component {
                             </Row>
                             <Row>
                                 <Col>
-                                    {/* <MapDisplay
-                                        imgUrl={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_KEY}&center=${this.state.latitude},${this.state.longitude}&zoom=12`}
+                                    <MapDisplay
+                                        imgUrl={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_KEY}&center=${this.state.latitude},${this.state.longitude}&zoom=0`}
                                         cityName={this.state.cityName}
-                                    /> */}
+                                    />
                                 </Col>
                             </Row>
                         </>
