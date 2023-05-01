@@ -5,6 +5,8 @@ import Container from "react-bootstrap/Container";
 import LocationInfo from "./LocationInfo";
 import CityInput from "./CityInput";
 import MapDisplay from "./MapDisplay";
+import Weather  from "./Weather";
+import Movies from "./Movies";
 import axios from "axios";
 
 
@@ -20,6 +22,8 @@ class Main extends React.Component {
             longitude: "",
             mapUrl: "",
             showMap: false,
+            weather: [],
+            movies: [],
         };
     }
 
@@ -46,7 +50,12 @@ class Main extends React.Component {
                 latitude: latitude,
                 longitude: longitude,
                 showMap: true,
-            });
+            },
+            () => {
+                this.getWeather(latitude, longitude);
+                this.getMovies(this.state.cityName);
+            }
+            );
         } catch (error) {
             this.setState({
                 showMap: false,
@@ -58,7 +67,6 @@ class Main extends React.Component {
 
     render() {
 
-        console.log(this.state.latitude);
         return (
             <>
                 <Container fluid>
@@ -92,12 +100,46 @@ class Main extends React.Component {
                                     />
                                 </Col>
                             </Row>
+                            <Weather weather={this.state.weather}/>
+                            <Movies movies={this.state.movies} />
                         </>
                     )}
                 </Container>
             </>
         );
     }
+
+    getWeather = async (lat, lon) => {
+        try {
+            let serverURL = `${process.env.REACT_APP_SERVER}/weather?lat=${lat}&lon=${lon}`;
+
+            let weatherResults = await axios.get(serverURL);
+            this.setState({
+                weather: weatherResults.data,
+            });
+        } catch (error) {
+            this.setState({
+                errorOccurred: true,
+                errorMessage: error.response && error.response.status,
+            });
+        }
+    };
+
+
+    getMovies = async (searchQuery) => {
+        try {
+            let serverURL = `${process.env.REACT_APP_SERVER}/movies?searchQuery=${searchQuery}`;
+            let movieResults = await axios.get(serverURL);
+            this.setState({
+                movies: movieResults.data,
+            });
+        } catch (error) {
+            this.setState({
+                errorOccurred: true,
+                errorMessage: error.response && error.response.status,
+            });
+        }
+    };
 }
 
 export default Main;
