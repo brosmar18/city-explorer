@@ -14,7 +14,7 @@ class Weather extends React.Component {
                         <Card.Text>
                             Description: {weatherItem.description}
                             <br />
-                            High Temperature: {weatherItem.max_temp}np
+                            High Temperature: {weatherItem.max_temp}
                             <br />
                             Low Temperature: {weatherItem.min_temp}
                         </Card.Text>
